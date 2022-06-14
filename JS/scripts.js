@@ -1,53 +1,53 @@
+//Business logic for DestinationDirectory//
 
-function FullDirectory() {
+function DestinationDirectory() {
   this.destinations = {};
   this.currentId = 0;
 }
+//function ^ starts list of destinations at index of 0//
 
-
-
-FullDirectory.prototype.addDestination = function(destination) {
-  destination.name = this.assignID;
+DestinationDirectory.prototype.addDestination = function(destination) {
+  destination.id = this.assignId();
   this.destinations[destination.id] = destination;
-  };
+};
+//passing a Destination object that has a (name location landmark and season) and assigns incremental id by 1 and return)
 
-FullDirectory.prototype.assignId = function() {
+
+DestinationDirectory.prototype.assignId = function() {
     this.currentId += 1;
     return this.currentId;
+};
+//^gives each property of the destination directory an index id in order (+1)//
 
+DestinationDirectory.prototype.findDestination = function(id) {
+  if (this.destinations[id] !=undefined) {
+    return this.destinations[id];
+  }
+  return false;
 };
 
+//Business Logic for destinations ----  //
 
-//Business Logic for destination ----  //
-
-function Destination(name, location, landmark, season,) {
-  this.name = name;
+function Destination(city, location, landmark, season,) {
+  this.city = city;
   this.location = location;
   this.landmark = landmark;
   this.season = season;
 }
 
+Destination.prototype.fullInfo = function() {
+  return this.city + " is so nice in " + this.season + ". It's located in " + this.location + " and has cool places to visit such as the " + this.landmark + "!"; 
+};
 
-// UI logic 
+// UI logic //
+//test!
 
-let fullDirectory = new FullDirectory();
-let cdmx = new Destination ("Mexico City", "Mexico", "First Glass Church", "September through March");
-let ice = new Destination("Iceland", "Scandinavia", "Blue Lagoon", "March through August");
+let destinationDirectory = new DestinationDirectory();
+let cdmx = new Destination ("Mexico City", "Mexico", "First Glass Church", "the Winter");
+let ice = new Destination("Iceland", "Scandinavia", "Blue Lagoon", " the Spring");
+destinationDirectory.addDestination(cdmx);
+destinationDirectory.addDestination(ice);
 
+//then call cdmx; in console to test//
 
-
-
-// Destination.prototype. = () {
-//   fullInfo = this.name + "  is a city located in " + this.location + ". When visiting, a popular landmark to check out is the " + this.landmark + ". The recommended time for travel are the months " + this.season + ". ";
-//   return 
-// }
-
-
-fullDirectory.destinations.forEach(function(destination) {
-  console.log("Let's go to" + destination.name + "!");
-});
-//stating a function for destinations within the "fulldirectory" object//
-
-
-
-
+//successful fullInfo test cdmx.fullInfo();//

@@ -39,7 +39,8 @@ Destination.prototype.fullInfo = function() {
   return this.city + " is so nice in " + this.season + ". It's located in " + this.location + " and has cool places to visit such as the " + this.landmark + "!"; 
 };
 
-// UI logic //
+
+
 //test!
 
 let destinationDirectory = new DestinationDirectory();
@@ -51,3 +52,11 @@ destinationDirectory.addDestination(ice);
 //then call cdmx; in console to test//
 
 //successful fullInfo test cdmx.fullInfo();//
+
+//// UI logic ///
+
+let destinationDirectory = new DestinationDirectory();
+
+$(document).ready(function() {
+   $("
+
